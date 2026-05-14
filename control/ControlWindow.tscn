@@ -118,32 +118,32 @@ text = "Align & Space"
 
 [node name="ControllButtons" type="HBoxContainer" parent="Buttons" unique_id=1559286945]
 layout_mode = 2
-alignment = 1
+alignment = 2
 
 [node name="RunButton" type="Button" parent="Buttons/ControllButtons" unique_id=214835200]
+custom_minimum_size = Vector2(100, 0)
 layout_mode = 2
-size_flags_horizontal = 3
 toggle_mode = true
 text = "Run"
 
 [node name="ResetButton" type="Button" parent="Buttons/ControllButtons" unique_id=1860885374]
+custom_minimum_size = Vector2(100, 0)
 layout_mode = 2
-size_flags_horizontal = 3
 text = "Reset"
 
 [node name="AddButton" type="Button" parent="Buttons/ControllButtons" unique_id=1663404659]
+custom_minimum_size = Vector2(120, 0)
 layout_mode = 2
-size_flags_horizontal = 3
 text = "Add Block"
 
 [node name="RemoveButton" type="Button" parent="Buttons/ControllButtons" unique_id=580177025]
+custom_minimum_size = Vector2(120, 0)
 layout_mode = 2
-size_flags_horizontal = 3
 text = "Remove Block"
 
 [node name="ExitButton" type="Button" parent="Buttons/ControllButtons" unique_id=713909949]
+custom_minimum_size = Vector2(100, 0)
 layout_mode = 2
-size_flags_horizontal = 3
 text = "Exit"
 
 [connection signal="pressed" from="Buttons/AlignButtons/AlignButton" to="." method="_on_align_button_pressed"]

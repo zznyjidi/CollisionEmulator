@@ -15,7 +15,7 @@ func add_input_block(index: int) -> void:
 	block_inputs.append(block_input_obj)
 
 func _ready() -> void:
-	for i in range(3):
+	for i in range(2):
 		add_input_block(i)
 
 func _process(_delta: float) -> void:
@@ -35,3 +35,10 @@ func _on_reset_button_pressed() -> void:
 	for input in block_inputs:
 		blocks_info.append(input.get_value())
 	emulation_reset.emit(blocks_info)
+
+func _on_add_button_pressed() -> void:
+	add_input_block(len(block_inputs))
+
+func _on_remove_button_pressed() -> void:
+	var input_obj = block_inputs.pop_back()
+	$Margin/BlockInputs.remove_child(input_obj)

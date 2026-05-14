@@ -2,6 +2,7 @@ extends CharacterBody2D
 
 var currentVelocity: Vector2
 var mass: float
+var isWall: bool
 
 func _ready() -> void:
 	pass
@@ -13,7 +14,9 @@ func step_emulation(delta: float) -> void:
 	var collision = move_and_collide(currentVelocity * delta * 100)
 	if collision:
 		var collisionBody = collision.get_collider()
-		if collisionBody.currentVelocity == Vector2(0,0):
+		if collisionBody.isWall:
+			currentVelocity = -currentVelocity
+		elif collisionBody.currentVelocity == Vector2(0,0):
 			var massRatio = collisionBody.mass / mass
 			var v2 = (2 * currentVelocity) / (massRatio + 1)
 			var v1 = currentVelocity - (massRatio * v2)

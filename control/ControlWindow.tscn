@@ -7,13 +7,13 @@ disable_3d = true
 oversampling_override = 1.0
 title = "Contol"
 initial_position = 3
-size = Vector2i(300, 300)
+size = Vector2i(600, 300)
 current_screen = 0
 always_on_top = true
 minimize_disabled = true
 maximize_disabled = true
-min_size = Vector2i(300, 0)
-max_size = Vector2i(600, 16384)
+min_size = Vector2i(600, 300)
+max_size = Vector2i(16384, 300)
 content_scale_mode = 2
 content_scale_aspect = 1
 content_scale_stretch = 1
@@ -59,7 +59,13 @@ layout_mode = 2
 text = "Mass"
 horizontal_alignment = 2
 
-[node name="HBoxContainer" type="HBoxContainer" parent="." unique_id=360340185]
+[node name="Wall" type="Label" parent="Margin/BlockInputs/FieldLabel" unique_id=1573541372]
+custom_minimum_size = Vector2(0, 32)
+layout_mode = 2
+text = "Wall"
+horizontal_alignment = 2
+
+[node name="Buttons" type="HBoxContainer" parent="." unique_id=360340185]
 anchors_preset = 12
 anchor_top = 1.0
 anchor_right = 1.0
@@ -72,22 +78,34 @@ grow_horizontal = 2
 grow_vertical = 0
 alignment = 1
 
-[node name="RunButton" type="Button" parent="HBoxContainer" unique_id=214835200]
+[node name="RunButton" type="Button" parent="Buttons" unique_id=214835200]
 layout_mode = 2
 size_flags_horizontal = 3
 toggle_mode = true
 text = "Run"
 
-[node name="ResetButton" type="Button" parent="HBoxContainer" unique_id=1860885374]
+[node name="ResetButton" type="Button" parent="Buttons" unique_id=1860885374]
 layout_mode = 2
 size_flags_horizontal = 3
 text = "Reset"
 
-[node name="ExitButton" type="Button" parent="HBoxContainer" unique_id=713909949]
+[node name="AddButton" type="Button" parent="Buttons" unique_id=1663404659]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "Add Block"
+
+[node name="RemoveButton" type="Button" parent="Buttons" unique_id=580177025]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "Remove Block"
+
+[node name="ExitButton" type="Button" parent="Buttons" unique_id=713909949]
 layout_mode = 2
 size_flags_horizontal = 3
 text = "Exit"
 
-[connection signal="toggled" from="HBoxContainer/RunButton" to="." method="_on_run_button_toggled"]
-[connection signal="pressed" from="HBoxContainer/ResetButton" to="." method="_on_reset_button_pressed"]
-[connection signal="pressed" from="HBoxContainer/ExitButton" to="." method="_on_exit_button_pressed"]
+[connection signal="toggled" from="Buttons/RunButton" to="." method="_on_run_button_toggled"]
+[connection signal="pressed" from="Buttons/ResetButton" to="." method="_on_reset_button_pressed"]
+[connection signal="pressed" from="Buttons/AddButton" to="." method="_on_add_button_pressed"]
+[connection signal="pressed" from="Buttons/RemoveButton" to="." method="_on_remove_button_pressed"]
+[connection signal="pressed" from="Buttons/ExitButton" to="." method="_on_exit_button_pressed"]

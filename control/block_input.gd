@@ -16,5 +16,6 @@ func get_value() -> Dictionary:
 			float($InputX.text),
 			float($InputY.text)
 		),
-		"mass": float($InputMass.text)
+		"mass": float($InputMass.text),
+		"isWall": $SelectWall.button_pressed
 	}

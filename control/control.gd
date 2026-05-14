@@ -42,3 +42,12 @@ func _on_add_button_pressed() -> void:
 func _on_remove_button_pressed() -> void:
 	var input_obj = block_inputs.pop_back()
 	$Margin/BlockInputs.remove_child(input_obj)
+
+func _on_align_button_pressed() -> void:
+	var Y = $Buttons/AlignButtons/InputBlockY.text
+	var X = float($Buttons/AlignButtons/InputBlockStart.text)
+	var XSpace = float($Buttons/AlignButtons/InputBlockSpace.text)
+	for input in block_inputs:
+		input.get_node("InputY").text = Y
+		input.get_node("InputX").text = str(X)
+		X += XSpace

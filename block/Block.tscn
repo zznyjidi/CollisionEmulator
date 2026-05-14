@@ -1,0 +1,76 @@
+[gd_scene format=3 uid="uid://d0aypuek8mx8e"]
+
+[ext_resource type="Script" uid="uid://dg5q2qcx4o2tx" path="res://block/block.gd" id="1_kwufx"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_hfsdp"]
+size = Vector2(80, 80)
+
+[node name="Block" type="CharacterBody2D" unique_id=1371984236]
+safe_margin = 0.001
+script = ExtResource("1_kwufx")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1644130988]
+shape = SubResource("RectangleShape2D_hfsdp")
+
+[node name="Polygon2D" type="Polygon2D" parent="CollisionShape2D" unique_id=1104312422]
+polygon = PackedVector2Array(-40, -40, 40, -40, 40, 40, -40, 40)
+uv = PackedVector2Array(-282, -12, -177, -12, -177, 50, -282.5, 50)
+
+[node name="Info" type="HBoxContainer" parent="." unique_id=478705347]
+anchors_preset = -1
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -21.0
+offset_top = -26.0
+offset_right = 40.0
+offset_bottom = 26.0
+grow_horizontal = 0
+grow_vertical = 2
+alignment = 2
+metadata/_edit_use_anchors_ = true
+
+[node name="Value" type="VBoxContainer" parent="Info" unique_id=439401116]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+alignment = 2
+
+[node name="MassLabel" type="Label" parent="Info/Value" unique_id=1216355025]
+custom_minimum_size = Vector2(0, 25)
+layout_mode = 2
+theme_override_colors/font_color = Color(0.5, 0.5, 0.5, 1)
+theme_override_font_sizes/font_size = 16
+text = "0.00"
+horizontal_alignment = 2
+vertical_alignment = 2
+
+[node name="VelocityLabel" type="Label" parent="Info/Value" unique_id=995717357]
+custom_minimum_size = Vector2(0, 20)
+layout_mode = 2
+theme_override_colors/font_color = Color(0.5, 0.5, 0.5, 1)
+theme_override_font_sizes/font_size = 16
+text = "0.00"
+horizontal_alignment = 2
+vertical_alignment = 2
+
+[node name="Unit" type="VBoxContainer" parent="Info" unique_id=1376824915]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+alignment = 2
+
+[node name="MassUnit" type="Label" parent="Info/Unit" unique_id=675552704]
+custom_minimum_size = Vector2(25, 25)
+layout_mode = 2
+theme_override_colors/font_color = Color(0.5, 0.5, 0.5, 1)
+theme_override_font_sizes/font_size = 16
+text = "kg"
+vertical_alignment = 2
+
+[node name="VelocityUnit" type="Label" parent="Info/Unit" unique_id=539823752]
+custom_minimum_size = Vector2(25, 22)
+layout_mode = 2
+theme_override_colors/font_color = Color(0.5, 0.5, 0.5, 1)
+theme_override_font_sizes/font_size = 13
+text = "m/s"
+vertical_alignment = 2

@@ -1,0 +1,93 @@
+[gd_scene format=3 uid="uid://crsmbuipi5vjy"]
+
+[ext_resource type="Script" uid="uid://cimxad6lmmmjc" path="res://control/control.gd" id="1_e2r1t"]
+
+[node name="ControlWindow" type="Window" unique_id=519107509]
+disable_3d = true
+oversampling_override = 1.0
+title = "Contol"
+initial_position = 3
+size = Vector2i(300, 300)
+current_screen = 0
+always_on_top = true
+minimize_disabled = true
+maximize_disabled = true
+min_size = Vector2i(300, 0)
+max_size = Vector2i(600, 16384)
+content_scale_mode = 2
+content_scale_aspect = 1
+content_scale_stretch = 1
+script = ExtResource("1_e2r1t")
+
+[node name="Margin" type="MarginContainer" parent="." unique_id=2086165107]
+anchors_preset = 10
+anchor_right = 1.0
+offset_bottom = 58.0
+grow_horizontal = 2
+
+[node name="BlockInputs" type="HBoxContainer" parent="Margin" unique_id=792762655]
+layout_mode = 2
+
+[node name="FieldLabel" type="VBoxContainer" parent="Margin/BlockInputs" unique_id=1714146353]
+layout_mode = 2
+
+[node name="Placeholder" type="Control" parent="Margin/BlockInputs/FieldLabel" unique_id=1242693559]
+custom_minimum_size = Vector2(0, 30)
+layout_mode = 2
+
+[node name="InitVx" type="Label" parent="Margin/BlockInputs/FieldLabel" unique_id=586523108]
+custom_minimum_size = Vector2(60, 32)
+layout_mode = 2
+text = "InitVx"
+horizontal_alignment = 2
+
+[node name="X" type="Label" parent="Margin/BlockInputs/FieldLabel" unique_id=1723695438]
+custom_minimum_size = Vector2(60, 32)
+layout_mode = 2
+text = "X"
+horizontal_alignment = 2
+
+[node name="Y" type="Label" parent="Margin/BlockInputs/FieldLabel" unique_id=1740175320]
+custom_minimum_size = Vector2(60, 32)
+layout_mode = 2
+text = "Y"
+horizontal_alignment = 2
+
+[node name="Mass" type="Label" parent="Margin/BlockInputs/FieldLabel" unique_id=1974563215]
+custom_minimum_size = Vector2(0, 32)
+layout_mode = 2
+text = "Mass"
+horizontal_alignment = 2
+
+[node name="HBoxContainer" type="HBoxContainer" parent="." unique_id=360340185]
+anchors_preset = 12
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 6.0
+offset_top = -42.0
+offset_right = -6.0
+offset_bottom = -10.0
+grow_horizontal = 2
+grow_vertical = 0
+alignment = 1
+
+[node name="RunButton" type="Button" parent="HBoxContainer" unique_id=214835200]
+layout_mode = 2
+size_flags_horizontal = 3
+toggle_mode = true
+text = "Run"
+
+[node name="ResetButton" type="Button" parent="HBoxContainer" unique_id=1860885374]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "Reset"
+
+[node name="ExitButton" type="Button" parent="HBoxContainer" unique_id=713909949]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "Exit"
+
+[connection signal="toggled" from="HBoxContainer/RunButton" to="." method="_on_run_button_toggled"]
+[connection signal="pressed" from="HBoxContainer/ResetButton" to="." method="_on_reset_button_pressed"]
+[connection signal="pressed" from="HBoxContainer/ExitButton" to="." method="_on_exit_button_pressed"]

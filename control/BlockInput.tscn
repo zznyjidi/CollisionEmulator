@@ -1,0 +1,43 @@
+[gd_scene format=3 uid="uid://bo2pdtm7dndeg"]
+
+[ext_resource type="Script" uid="uid://buujd03dmgmcg" path="res://control/block_input.gd" id="1_tv13l"]
+
+[node name="BlockInput" type="VBoxContainer" unique_id=1818615824]
+script = ExtResource("1_tv13l")
+
+[node name="BlockLabel" type="Label" parent="." unique_id=1447097060]
+custom_minimum_size = Vector2(100, 25)
+layout_mode = 2
+text = "Block 1"
+horizontal_alignment = 1
+
+[node name="InputVx" type="LineEdit" parent="." unique_id=1962396267]
+custom_minimum_size = Vector2(0, 32)
+layout_mode = 2
+size_flags_horizontal = 3
+text = "10"
+placeholder_text = "Init Vx"
+alignment = 2
+
+[node name="InputX" type="LineEdit" parent="." unique_id=1719966522]
+custom_minimum_size = Vector2(0, 32)
+layout_mode = 2
+size_flags_horizontal = 3
+text = "300"
+placeholder_text = "X"
+alignment = 2
+
+[node name="InputY" type="LineEdit" parent="." unique_id=1464094106]
+custom_minimum_size = Vector2(0, 32)
+layout_mode = 2
+size_flags_horizontal = 3
+text = "300"
+placeholder_text = "Y"
+alignment = 2
+
+[node name="InputMass" type="LineEdit" parent="." unique_id=1967460178]
+custom_minimum_size = Vector2(0, 32)
+layout_mode = 2
+text = "1"
+placeholder_text = "Mass"
+alignment = 2

@@ -1,0 +1,13 @@
+[gd_scene format=3 uid="uid://dbkxyn3q83qno"]
+
+[ext_resource type="Script" uid="uid://dpdgve22cckmk" path="res://defualt.gd" id="1_4byu2"]
+[ext_resource type="PackedScene" uid="uid://crsmbuipi5vjy" path="res://control/ControlWindow.tscn" id="2_c1d1u"]
+
+[node name="Defualt" type="Node2D" unique_id=913206101]
+script = ExtResource("1_4byu2")
+
+[node name="ControlWindow" parent="." unique_id=519107509 instance=ExtResource("2_c1d1u")]
+
+[connection signal="emulation_reset" from="ControlWindow" to="." method="_on_control_window_emulation_reset"]
+[connection signal="emulation_start" from="ControlWindow" to="." method="_on_control_window_emulation_start"]
+[connection signal="emulation_stop" from="ControlWindow" to="." method="_on_control_window_emulation_stop"]

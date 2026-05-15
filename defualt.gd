@@ -27,9 +27,6 @@ func _on_control_window_emulation_reset(blocks: Array) -> void:
 	blocks_obj.clear()
 	for block_info in blocks:
 		var block = BlockObj.instantiate()
-		block.position = block_info['pos']
-		block.currentVelocity = Vector2(block_info['initvx'], 0)
-		block.mass = block_info['mass']
-		block.isWall = block_info['isWall']
+		block.apply_settings(block_info)
 		blocks_obj.append(block)
 		add_child(block)

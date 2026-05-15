@@ -10,7 +10,15 @@ func _ready() -> void:
 func _process(_delta: float) -> void:
 	update_lable()
 
+func apply_settings(info: Dictionary) -> void:
+	isWall = info['isWall']
+	position = info['pos']
+	currentVelocity = Vector2(info['initvx'], 0)
+	mass = info['mass']
+
 func step_emulation(delta: float) -> void:
+	if isWall:
+		return
 	var collision = move_and_collide(currentVelocity * delta * 100)
 	if collision:
 		var collisionBody = collision.get_collider()
@@ -25,5 +33,6 @@ func step_emulation(delta: float) -> void:
 			collisionBody.currentVelocity = v2
 
 func update_lable() -> void:
+	$Info.visible = !isWall
 	$Info/Value/MassLabel.text = "%.2f" % mass
 	$Info/Value/VelocityLabel.text = "%.2f" % currentVelocity.x

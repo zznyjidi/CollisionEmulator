@@ -15,6 +15,8 @@ func apply_settings(info: Dictionary) -> void:
 	position = info['pos']
 	currentVelocity = Vector2(info['initvx'], 0)
 	mass = info['mass']
+	scale = Vector2(1, 1)
+	scale *= pow(mass, 1.0/3.0)
 
 func step_emulation(delta: float) -> void:
 	if isWall:

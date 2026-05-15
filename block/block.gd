@@ -16,10 +16,11 @@ func step_emulation(delta: float) -> void:
 		var collisionBody = collision.get_collider()
 		if collisionBody.isWall:
 			currentVelocity = -currentVelocity
-		elif collisionBody.currentVelocity == Vector2(0,0):
-			var massRatio = collisionBody.mass / mass
-			var v2 = (2 * currentVelocity) / (massRatio + 1)
-			var v1 = currentVelocity - (massRatio * v2)
+		else:
+			var massTotal = mass + collisionBody.mass
+			var massDiff = mass - collisionBody.mass
+			var v1 = (massDiff / massTotal) * currentVelocity + (2 * collisionBody.mass / massTotal) * collisionBody.currentVelocity
+			var v2 = (2 * mass / massTotal) * currentVelocity + (-massDiff / massTotal) * collisionBody.currentVelocity
 			currentVelocity = v1
 			collisionBody.currentVelocity = v2
 
